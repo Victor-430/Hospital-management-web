@@ -7,9 +7,9 @@ export const TestimonialSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-6xl text-white/20 mb-6">"</div>
           <blockquote className="text-white text-xl mb-8 leading-relaxed">
-            The hospital is not just a place of healing, but a sanctuary where
+            &quot;The hospital is not just a place of healing, but a sanctuary where
             compassion meets expertise, where every patient is treated with
-            dignity, and where hope is restored one life at a time.
+            dignity, and where hope is restored one life at a time.&quot;
           </blockquote>
           <div className="text-white">
             <p className="font-semibold text-lg">Johnson</p>

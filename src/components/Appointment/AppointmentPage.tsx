@@ -2,8 +2,8 @@
 
 // import Image from "next/image";
 import React from "react";
-import { BookingForm } from "./BookingForm";
-import { Button } from "../ui/button";
+// import { BookingForm } from "./BookingForm";
+// import { Button } from "../ui/button";
 import { ServicesSection } from "./ServicesSection";
 import { TestimonialsSection } from "./TestimonialSection";
 import { FAQSection } from "./FAQSection";
