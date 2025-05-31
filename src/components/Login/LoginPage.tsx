@@ -38,7 +38,7 @@ export const LoginPage = ({ variant }: { variant: variantProp }) => {
 
   const rememberMe = watch("rememberMe");
 
-  const onSubmit = async (data: LoginFormData) => {
+  const onFormSubmit = async (data: LoginFormData) => {
     try {
       await login(data.email, data.password, data.rememberMe);
     } catch (error) {
@@ -104,7 +104,7 @@ export const LoginPage = ({ variant }: { variant: variantProp }) => {
 
           <Card className="shadow-lg border-0">
             <CardContent className="p-6">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-4">
                 {/* display name only when the prop is signup */}
                 {variant === "signup" && (
                   <NameInput errors={errors} register={register} />

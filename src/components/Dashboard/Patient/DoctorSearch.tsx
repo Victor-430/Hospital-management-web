@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Star, Heart, Filter } from "lucide-react";
-import { useHealthcareStore } from "@/utils/Store/Patient/patientStore";
+import { Doctor, useHealthcareStore } from "@/utils/Store/Patient/patientStore";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,7 +31,7 @@ export const DoctorSearch = () => {
     return matchesSearch && matchesSpecialty;
   });
 
-  const handleDoctorSelect = (doctor) => {
+  const handleDoctorSelect = (doctor: Doctor | null) => {
     setSelectedDoctor(doctor);
   };
 
