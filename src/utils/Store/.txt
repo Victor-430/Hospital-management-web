@@ -1,0 +1,37 @@
+based on the ui provided. generate a component using typescript, next.js 15, zod,shadcn zustand, and use react hook form where necesary,react toastify,framer motion
+
+- added doctors screen
+- added about us screen
+- added cotact screen
+- added appointment screen
+- added home screen
+-added services screen
+
+
+-added number animation
+-added footer
+-added images
+
+
+
+i am gettng this error 
+Unhandled Runtime Error
+Server
+
+SyntaxError: Invalid regular expression: /\buseDeferredValue\b.*is not a function/: Maximum call stack size exceeded
+
+Unhandled Runtime Error
+Server
+
+
+RangeError: Maximum call stack size exceeded
+
+
+i want to merge this 2 authsore together. do not remove anything. i have provided the screens for which the auth will be used.also i will be needing 
+the isAuthicated to check whether the staff or patient is signed in 
+also the services, i want it to show a dropdown based on who is siged in whether patient or staff(admin,doctor,nurse,admin,super,admin)
+the patient services should have dropdown like(dashboard,find doctor, pharmacy, book test). 
+based on the ui provided. generate a component using typescript, next.js 15, zod,shadcn zustand, and use react hook form where necesary
+
+
+
