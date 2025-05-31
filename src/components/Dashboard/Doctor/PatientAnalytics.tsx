@@ -11,7 +11,6 @@ import {
   XAxis,
   YAxis,
   ResponsiveContainer,
-  CartesianGrid,
 } from "recharts";
 import { useDashboardStore } from "@/utils/Store/Doctor/DashboardStore";
 

@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useDashboardStore } from "@/utils/Store/Doctor/DashboardStore";
 import { Calendar, User, FileText, Activity } from "lucide-react";
-import Image from "next/image";
-import { Ava } from "@/utils/image";
 
 const getNotificationIcon = (type: string) => {
   switch (type) {

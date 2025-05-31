@@ -53,9 +53,7 @@ export const TestimonialsSection = () => {
                     />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-6 italic">
-                  "{testimonial.text}"
-                </p>
+                <p className="text-gray-600 mb-6 italic">{testimonial.text}</p>
                 <div className="flex items-center gap-4">
                   <Image
                     src={testimonial.avatar}

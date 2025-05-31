@@ -1,7 +1,7 @@
 "use client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Settings, Users, BarChart3, Calendar, Database } from "lucide-react";
+import { Users, BarChart3, Calendar, Database } from "lucide-react";
 
 export const AdminPage = ({ userName }: { userName: string | null }) => {
   const adminServices = [

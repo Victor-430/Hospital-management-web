@@ -17,7 +17,7 @@ export const UpcomingEvent = () => {
               </div>
               <div className="flex-1">
                 <p className="text-sm font-medium">
-                  Monthly doctor&apos;`s meet
+                  Monthly doctor&apos;s meet
                 </p>
                 <p className="text-xs text-gray-500">
                   8 March, 2025 | 04:00 PM

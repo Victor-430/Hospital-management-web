@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useDashboardStore } from "@/utils/Store/Doctor/DashboardStore";
 import { Star, Calendar, FileText, Activity } from "lucide-react";
 
 const statCards = [
@@ -37,8 +36,6 @@ const statCards = [
 ];
 
 export const DashboardCards = () => {
-  const { stats } = useDashboardStore();
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       {statCards.map((card, index) => (
