@@ -23,9 +23,9 @@ export const TestimonialSetion = () => {
         <div className="max-w-4xl mx-auto text-center text-white">
           <Quote className="h-16 w-16 mx-auto mb-8 text-blue-200" />
           <blockquote className="text-2xl lg:text-3xl font-light leading-relaxed mb-8 italic">
-            "The hospital is not just a place of healing, but a sanctuary where
+           &quot;The hospital is not just a place of healing, but a sanctuary where
             compassion meets expertise, where every patient is treated with
-            dignity, and where hope is restored one life at a time."
+            dignity, and where hope is restored one life at a time.&quot;
           </blockquote>
           <footer className="text-lg">
             <cite className="font-semibold">Johnson</cite>
