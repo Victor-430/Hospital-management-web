@@ -43,7 +43,7 @@ export const AppointmentTable = () => {
   const totalPages = getTotalPages();
 
   const renderActionButtons = (appointment: Appointment) => {
-    const buttons = [];
+   const buttons: React.ReactElement[] = [];
 
     // Always show Reschedule button
     buttons.push(
