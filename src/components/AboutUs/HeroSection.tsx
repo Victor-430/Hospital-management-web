@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
-import { About_us_Hero, About_us_News_2 } from "@/utils/image";
+import { About_us_News_2 } from "@/utils/image";
 
 const features = [
   "A Passion for healing",
