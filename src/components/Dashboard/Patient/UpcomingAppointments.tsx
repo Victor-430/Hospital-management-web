@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useHealthcareStore } from "@/utils/Store/Patient/patientStore";
 
 export const UpcomingAppointments = () => {
-  const { currentUser, appointments } = useHealthcareStore();
+  const { appointments } = useHealthcareStore();
   const upcomingAppointments = appointments
     .filter((apt) => apt.status === "upcoming")
     .slice(0, 2);

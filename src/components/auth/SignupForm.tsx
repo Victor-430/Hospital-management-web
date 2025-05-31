@@ -43,12 +43,12 @@ interface SignupFormProps {
   onLogin: () => void;
 }
 
-export const SignupForm = ({ onBack, onLogin }: Partial<SignupFormProps>) => {
+export const SignupForm = ({}: Partial<SignupFormProps>) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { signup, userRole } = useAuthStore();
+  const { signup } = useAuthStore();
 
   const {
     register,
@@ -72,6 +72,7 @@ export const SignupForm = ({ onBack, onLogin }: Partial<SignupFormProps>) => {
       await signup(data.name, data.email, data.password);
       toast.success("Account created successfully , Welcome to CareCycle!");
     } catch (error) {
+      console.log(error);
       toast.error("Signup failed, Failed to create account");
     } finally {
       setIsLoading(false);

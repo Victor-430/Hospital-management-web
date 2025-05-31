@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import React from "react";
 import {
-  format,
   addDays,
   startOfMonth,
   endOfMonth,

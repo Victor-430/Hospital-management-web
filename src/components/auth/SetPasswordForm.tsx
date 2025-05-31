@@ -6,11 +6,10 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Shield, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { toast } from "react-toastify";
 import Image from "next/image";
-import { getRoleImage, getRoleTitle } from "@/utils/role";
 import { LeftSideImage } from "./LeftSideImage";
 import { Logo } from "@/utils/image";
 
@@ -36,7 +35,7 @@ const SetPasswordForm = ({ onComplete }: SetPasswordFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { setNewPassword, userRole } = useAuthStore();
+  const { setNewPassword } = useAuthStore();
 
   const {
     register,

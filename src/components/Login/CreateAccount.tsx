@@ -18,7 +18,7 @@ export const CreateAccount = ({ variant }: { variant: variantProp }) => {
     <div className="text-center mt-6">
       {variant === "login" ? (
         <div className="dv">
-          <span className="text-gray-600">Don't have an account? </span>
+          <span className="text-gray-600">Don&apos;t have an account? </span>
           <Button
             onClick={handleCreateAccount}
             variant="link"

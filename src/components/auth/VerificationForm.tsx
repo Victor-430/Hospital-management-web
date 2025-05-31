@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Shield, ArrowLeft, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { toast } from "react-toastify";
 import { LeftSideImage } from "./LeftSideImage";
@@ -130,7 +130,9 @@ export const VerificationForm = ({
             </div>
 
             <div className="text-left">
-              <span className="text-gray-600">Didn't Receive A Code? </span>
+              <span className="text-gray-600">
+                Didn&apos;t Receive A Code?{" "}
+              </span>
               <button
                 type="button"
                 onClick={handleResend}

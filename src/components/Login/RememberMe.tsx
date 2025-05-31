@@ -1,7 +1,6 @@
 import React from "react";
 import { Checkbox } from "../ui/checkbox";
 import { Label } from "../ui/label";
-import { Button } from "../ui/button";
 
 export const RememberMe = ({ remember, value }) => {
   return (

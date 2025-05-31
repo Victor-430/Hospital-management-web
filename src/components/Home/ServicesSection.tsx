@@ -50,7 +50,8 @@ export const ServicesSection = () => {
           <p className="text-xl font-normal text-gray-600 max-w-3xl mx-auto leading-relaxed">
             At CareCycle we offer a wide range of healthcare services designed
             to meet your needs with precision and care, from diagnostic to
-            specialized treatments, we're here to support your health journey.
+            specialized treatments, we&apos;re here to support your health
+            journey.
           </p>
         </div>
 

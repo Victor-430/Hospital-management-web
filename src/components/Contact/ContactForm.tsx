@@ -26,7 +26,6 @@ export function ContactForm() {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -53,7 +52,7 @@ export function ContactForm() {
               Message Sent Successfully!
             </h3>
             <p className="text-gray-600">
-              Thank you for contacting us. We'll get back to you within 24
+              Thank you for contacting us. We&apos;ll get back to you within 24
               hours.
             </p>
             <Button onClick={handleReset} variant="outline">

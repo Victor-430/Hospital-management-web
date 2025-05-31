@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { DoctorPage } from "../Dashboard/Doctor/DoctorPage";
 import { NursePage } from "../Dashboard/Nurse/NursePage";

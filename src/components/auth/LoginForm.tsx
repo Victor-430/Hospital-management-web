@@ -31,11 +31,7 @@ interface LoginFormProps {
   onSignup: () => void;
 }
 
-export const LoginForm = ({
-  onBack,
-  onForgotPassword,
-  onSignup,
-}: LoginFormProps) => {
+export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -236,7 +232,9 @@ export const LoginForm = ({
             </div>
 
             <div className="text-center">
-              <span className="text-gray-600">Don't have an account? </span>
+              <span className="text-gray-600">
+                Don&apos;t have an account?{" "}
+              </span>
               <button
                 type="button"
                 onClick={handleSignupClick}

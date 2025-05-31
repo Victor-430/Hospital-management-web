@@ -11,7 +11,7 @@ interface ContactStore extends ContactSubmissionState {
   clearError: () => void;
 }
 
-export const useContactStore = create<ContactStore>((set, get) => ({
+export const useContactStore = create<ContactStore>((set) => ({
   // State
   isSubmitting: false,
   isSuccess: false,
@@ -22,7 +22,7 @@ export const useContactStore = create<ContactStore>((set, get) => ({
   setFormData: (data) =>
     set((state) => ({ formData: { ...state.formData, ...data } })),
 
-  submitForm: async (data) => {
+  submitForm: async () => {
     set({ isSubmitting: true, error: null });
 
     try {

@@ -1,5 +1,5 @@
 import { useAuthStore } from "@/utils/Store/Login/authStore";
-import { getRoleImage, getRoleTitle } from "@/utils/role";
+import { getRoleImage } from "@/utils/role";
 import Image from "next/image";
 import React from "react";
 

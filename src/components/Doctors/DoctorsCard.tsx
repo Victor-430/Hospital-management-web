@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent } from "../ui/card";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export const DoctorsCard = () => {
   const doctors = [
@@ -82,7 +83,7 @@ export const DoctorsCard = () => {
             className="overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div className="h-64 overflow-hidden">
-              <img
+              <Image
                 src={doctor.image}
                 alt={doctor.name}
                 className="w-full h-full object-cover"

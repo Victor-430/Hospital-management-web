@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Eye } from "lucide-react";
+import Image from "next/image";
 
 const newsArticles = [
   {
@@ -59,7 +60,7 @@ export const NewsSection = () => {
               className="overflow-hidden hover:shadow-lg transition-shadow"
             >
               <div className="h-48 overflow-hidden">
-                <img
+                <Image
                   src={article.image}
                   alt={article.title}
                   className="w-full h-full object-cover"

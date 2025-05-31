@@ -31,7 +31,7 @@ export const DoctorSearch = () => {
     return matchesSearch && matchesSpecialty;
   });
 
-  const handleDoctorSelect = (doctor: any) => {
+  const handleDoctorSelect = (doctor) => {
     setSelectedDoctor(doctor);
   };
 

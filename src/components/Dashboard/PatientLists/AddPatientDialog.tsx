@@ -90,6 +90,7 @@ export function AddPatientDialog({
       form.reset();
       onOpenChange(false);
     } catch (error) {
+      console.log(error);
       toast.error("Failed to add patient. Please try again.");
     } finally {
       setIsLoading(false);

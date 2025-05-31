@@ -37,13 +37,8 @@ const getStatusColor = (status: PatientStatus) => {
 };
 
 export function PatientTable() {
-  const {
-    getFilteredPatients,
-    getTotalPages,
-    currentPage,
-    setCurrentPage,
-    pageSize,
-  } = usePatientStore();
+  const { getFilteredPatients, getTotalPages, currentPage, setCurrentPage } =
+    usePatientStore();
 
   const patients = getFilteredPatients();
   const totalPages = getTotalPages();

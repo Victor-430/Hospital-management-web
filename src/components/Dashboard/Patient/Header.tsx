@@ -4,7 +4,7 @@ import { useHealthcareStore } from "@/utils/Store/Patient/patientStore";
 import React from "react";
 
 export const Header = () => {
-  const { currentUser, appointments } = useHealthcareStore();
+  const { currentUser } = useHealthcareStore();
   return (
     <div className="flex items-center justify-between mb-8">
       <div className="flex items-center space-x-4">

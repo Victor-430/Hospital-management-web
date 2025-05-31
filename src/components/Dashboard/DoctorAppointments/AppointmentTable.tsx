@@ -42,7 +42,7 @@ export const AppointmentTable = () => {
   const appointments = getFilteredAppointments();
   const totalPages = getTotalPages();
 
-  const renderActionButtons = (appointment: any) => {
+  const renderActionButtons = (appointment) => {
     const buttons = [];
 
     // Always show Reschedule button

@@ -1,14 +1,7 @@
 "use client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Crown,
-  Shield,
-  Database,
-  Settings,
-  Users,
-  Activity,
-} from "lucide-react";
+import { Crown, Shield, Database, Settings, Users } from "lucide-react";
 
 export const SuperAdminPage = ({ userName }: { userName: string | null }) => {
   const superAdminServices = [

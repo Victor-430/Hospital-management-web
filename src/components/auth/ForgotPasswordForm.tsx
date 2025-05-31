@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Shield, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -51,6 +51,7 @@ export const ForgotPasswordForm = ({
       );
       onVerification();
     } catch (error) {
+      console.log(error);
       toast.error("Failed to send reset email");
     } finally {
       setIsLoading(false);
@@ -92,7 +93,7 @@ export const ForgotPasswordForm = ({
               Forgot Your Password?
             </h1>
             <p className="text-gray-600">
-              Don't Worry, Happens To All Of Us. Enter Your Email Below To
+              Don&apos;t Worry, Happens To All Of Us. Enter Your Email Below To
               Recover Your Password
             </p>
           </div>

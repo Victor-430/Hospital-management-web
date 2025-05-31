@@ -1,10 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
 export const HeroSection = () => {
   return (
     <div className="relative bg-[#053C6D] py-20">
       <div className="absolute inset-0 bg-gradient-to-r from-[#053C6D]/90 to-[#053C6D]/70">
-        <img
+        <Image
           src="/lovable-uploads/651e3aab-bac7-42a0-9d26-dfd41b893c1a.png"
           alt="Doctors"
           className="w-full h-full object-cover opacity-30"

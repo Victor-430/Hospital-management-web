@@ -16,9 +16,10 @@ import {
   FlaskConical,
   CreditCard,
 } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 export interface MenuItem {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   path: string;
   active?: boolean;

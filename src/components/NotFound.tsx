@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -57,7 +58,7 @@ export const NotFound = () => {
               Currently Working to Fix This Page
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              We're working hard to get this page back up and running. Please
+              We&apos;re working hard to get this page back up and running. Please
               check back later or return to the homepage.
             </p>
           </motion.div>
@@ -77,7 +78,7 @@ export const NotFound = () => {
               Go Back
             </Button>
             <Button asChild className="flex items-center gap-2">
-              <a href="/">
+              <Link href="/">
                 <Home className="w-4 h-4 text-[#053C6D]  " />
                 Return Home
               </a>
