@@ -18,7 +18,7 @@ import { ForgotPassword } from "./ForgotPassword";
 import { variantProp } from "../Types/signup";
 import { NameInput } from "./NameInput";
 
-export const loginPage = ({ variant }: { variant: variantProp }) => {
+export const LoginPage = ({ variant }: { variant: variantProp }) => {
   const { login, loginWithGoogle, loginWithApple, isLoading } = useAuthStore();
 
   const {

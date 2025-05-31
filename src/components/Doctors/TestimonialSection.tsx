@@ -5,7 +5,7 @@ export const TestimonialSection = () => {
     <div className="bg-[#053C6D] py-20">
       <div className="container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="text-6xl text-white/20 mb-6">"</div>
+          {/* <div className="text-6xl text-white/20 mb-6">"</div> */}
           <blockquote className="text-white text-xl mb-8 leading-relaxed">
             &quot;The hospital is not just a place of healing, but a sanctuary where
             compassion meets expertise, where every patient is treated with
