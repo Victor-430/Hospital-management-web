@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useAppointmentStore } from "@/utils/Store/Doctor/appointmentStore";
-import { AppointmentStatus } from "@/components/Types/appointment";
+import { Appointment, AppointmentStatus } from "@/components/Types/appointment";
 import {
   Pagination,
   PaginationContent,
@@ -42,8 +42,9 @@ export const AppointmentTable = () => {
   const appointments = getFilteredAppointments();
   const totalPages = getTotalPages();
 
-  const renderActionButtons = (appointment) => {
-    const buttons = [];
+  const renderActionButtons = (appointment: Appointment) => {
+    // const buttons = [];
+    const buttons: React.ReactElement[] = [];
 
     // Always show Reschedule button
     buttons.push(

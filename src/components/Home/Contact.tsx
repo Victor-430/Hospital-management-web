@@ -36,7 +36,7 @@ export const Contact = () => {
             <h1 className="text-[#053C6D]">Phone:</h1>
             <Phone className="h-5 w-5 text-[#053C6D]" />
             <span className="flex items-center flex-col">
-              <p className="text-[#053C6D]">We're here to help.</p>
+              <p className="text-[#053C6D]">We\u0027re here to help.</p>
               <p className="text-[#053C6D]">+1 (555) 123-4567</p>
             </span>
           </div>

@@ -81,7 +81,7 @@ export const NotFound = () => {
               <Link href="/">
                 <Home className="w-4 h-4 text-[#053C6D]  " />
                 Return Home
-              </a>
+              </Link>
             </Button>
           </motion.div>
 
