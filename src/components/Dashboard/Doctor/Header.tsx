@@ -10,10 +10,10 @@ export const Header = ({ userName }: { userName: string | null }) => {
   const unreadCount = notifications.filter((n) => !n.read).length;
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
-      <div className="flex items-center justify-between">
-        <div>
+      <div className="flex flex-col md:flex-row items-center sm:gap-6 gap-4 justify-between">
+        <div className="">
           <h1 className="text-2xl font-bold text-gray-800">
-            Welcome, Dr. Favour John,{" "}
+            Welcome, Dr. {userName},{" "}
             <span className="text-green-600">Cardiologist</span>
           </h1>
         </div>

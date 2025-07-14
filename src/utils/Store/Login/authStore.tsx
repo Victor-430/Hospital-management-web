@@ -98,7 +98,7 @@ export const useAuthStore = create<AuthState>()(
           case "patient":
             return "/Dashboard/patient";
           default:
-            return "/Dashboard";
+            return null;
         }
       },
 
@@ -157,7 +157,7 @@ export const useAuthStore = create<AuthState>()(
 
         try {
           // Simulate Google OAuth
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 5000));
 
           const { userRole } = get();
           const mockUser: User = {
@@ -188,7 +188,7 @@ export const useAuthStore = create<AuthState>()(
 
         try {
           // Simulate Apple OAuth
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 5000));
 
           const { userRole } = get();
           const mockUser: User = {

@@ -1,12 +1,9 @@
 "use client";
 import { useEffect } from "react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
-import { DoctorPage } from "../Dashboard/Doctor/DoctorPage";
-import { NursePage } from "../Dashboard/Nurse/NursePage";
-import { AdminPage } from "../Dashboard/Admin/AdminPage";
-import { SuperAdminPage } from "../Dashboard/SuperAdmin/SuperAdminPage";
-import { PatientPage } from "../Dashboard/Patient/PatientPage";
+
 import { useRouter } from "next/navigation";
+import Loading from "@/app/(Dashboard Layout)/loading";
 
 export const Dashboard = () => {
   const router = useRouter();
@@ -22,27 +19,28 @@ export const Dashboard = () => {
     }
   }, [userRole, isAuthenticated, router, getRedirectPath]);
 
-  const renderDashboard = () => {
-    switch (userRole) {
-      case "patient":
-        return <PatientPage />;
-      case "doctor":
-        return <DoctorPage />;
-      case "nurse":
-        return <NursePage />;
-      case "admin":
-        return <AdminPage userName={userName} />;
-      case "super_admin":
-        return <SuperAdminPage userName={userName} />;
-      default:
-        return <PatientPage />;
-    }
-  };
+  // const renderDashboard = () => {
+  //   switch (userRole) {
+  //     case "patient":
+  //       return <PatientPage />;
+  //     case "doctor":
+  //       return <DoctorPage />;
+  //     case "nurse":
+  //       return <NursePage />;
+  //     case "admin":
+  //       return <AdminPage />;
+  //     case "super_admin":
+  //       return <SuperAdminPage />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {renderDashboard()}
+        {/* {renderDashboard()} */}
+        <Loading />
       </div>
     </div>
   );

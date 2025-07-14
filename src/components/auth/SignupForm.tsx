@@ -70,7 +70,8 @@ export const SignupForm = ({}: Partial<SignupFormProps>) => {
     setIsLoading(true);
     try {
       await signup(data.name, data.email, data.password);
-      toast.success("Account created successfully , Welcome to CareCycle!");
+      toast.success("Account created successfully");
+      router.push("/login");
     } catch (error) {
       console.log(error);
       toast.error("Signup failed, Failed to create account");
@@ -98,7 +99,7 @@ export const SignupForm = ({}: Partial<SignupFormProps>) => {
 
       {/* Right side - Signup form */}
       <div className="flex-1 flex items-center justify-center p-8 bg-gray-50">
-        <Card className="w-full max-w-md p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+        <Card className="w-full max-w-md p-8 shadow-xl ">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <Image src={Logo} alt="logo" />

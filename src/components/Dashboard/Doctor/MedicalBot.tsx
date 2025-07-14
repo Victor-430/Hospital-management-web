@@ -6,7 +6,7 @@ import React from "react";
 
 export const MedicalBot = () => {
   return (
-    <div className="w-[20rem] h-[15.5rem]">
+    <div className="w-full md:w-[20rem] h-[15.5rem]">
       {/* Medical Bot */}
       <Card className="bg-slate-900 text-white ">
         <CardContent className="p-6">

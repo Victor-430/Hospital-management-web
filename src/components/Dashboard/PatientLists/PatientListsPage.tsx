@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Search, Plus, Filter, Bell, ChevronDown } from "lucide-react";
-import { usePatientStore } from "@/utils/Store/Patient/patientStor";
+import { usePatientStore } from "@/utils/Store/Patient/patientSearch";
 import { PatientStatus } from "@/components/Types/patient";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 

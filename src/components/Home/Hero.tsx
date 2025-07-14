@@ -15,24 +15,24 @@ export const Hero = () => {
   };
 
   return (
-    <div className="bg-[#053C6D] relative overflow-hidden">
+    <div className="bg-[#053C6D] relative ">
       <div className="container mx-auto px-6 py-20">
-        <div className="bg-white rounded-xl p-12 shadow-2xl">
+        <div className="bg-white rounded-xl p-4 sm:p-12 shadow-2xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="space-y-6">
-                <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <div className="space-y-6 text-wrap">
+                <h1 className="text-3xl lg:text-6xl text-center font-bold text-gray-900 leading-tight">
                   One Platform for all Your{" "}
                   <span className="text-[#053C6D]">Healthcare</span> Needs.
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-600 text-wrap leading-relaxed">
                   Experience seamless healthcare with our comprehensive
                   platform. Book appointments, consult with experts, and manage
                   your health journey all in one place.
                 </p>
               </div>
 
-              <div className="flex flex-row gap-6  items-start">
+              <div className="flex flex-col sm:flex-row justify-center gap-6  sm:items-start">
                 <Button
                   onClick={handleAppointment}
                   className="bg-[#053C6D] h-13 hover:bg-[#042a4f] text-white px-4 py-2 sm:px-8 sm:py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"

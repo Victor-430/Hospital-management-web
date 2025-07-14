@@ -46,7 +46,7 @@ export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
     defaultValues: {
       email: "",
       password: "",
-      rememberMe: false,
+      rememberMe: true,
     },
   });
 

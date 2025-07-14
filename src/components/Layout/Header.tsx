@@ -1,12 +1,26 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { Navigation } from "./Navigation";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
+  const pathname = usePathname;
+  console.log(pathname);
+
   return (
     <header className="w-full bg-white py-4 px-6 flex justify-between items-center shadow-sm border-b">
       <div className="flex items-center">
-        <Link href="/" className="flex items-center"></Link>
+        {/* <Link
+          href="/"
+          className={`px-3 py-2 rounded-md  font-normal text-[1rem] transition-colors flex items-center ${
+            pathname === '/'
+              ? "text-white bg-[#053C6D] "
+              : "text-[#000000] hover:text-[#053C6D] hover:bg-[#DAF1FB]"
+          }`}
+        >
+          Home
+        </Link> */}
       </div>
       <Navigation />
     </header>

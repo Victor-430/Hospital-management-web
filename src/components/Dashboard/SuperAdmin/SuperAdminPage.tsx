@@ -2,8 +2,10 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Crown, Shield, Database, Settings, Users } from "lucide-react";
+import { useAuthStore } from "@/utils/Store/Login/authStore";
 
-export const SuperAdminPage = ({ userName }: { userName: string | null }) => {
+export const SuperAdminPage = () => {
+  const { userName } = useAuthStore();
   const superAdminServices = [
     {
       icon: Shield,
@@ -33,7 +35,7 @@ export const SuperAdminPage = ({ userName }: { userName: string | null }) => {
 
   return (
     <div className="space-y-6">
-      <Card className="p-8 bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+      <Card className="p-8 bg-[#1e3a8a] text-white">
         <div className="flex items-center mb-2">
           <Crown className="h-8 w-8 mr-2" />
           <h1 className="text-3xl font-bold">

@@ -7,20 +7,22 @@ export const Contact = () => {
   return (
     <div className="bg-[#DAF1FB] p-8 ">
       <div className="text-center">
-        <h3 className="text-[3rem] font-bold text-[#053C6D]">Contact Us</h3>
+        <h3 className="text-[2rem] sm:text-[3rem] font-bold text-[#053C6D]">
+          Contact Us
+        </h3>
         <p className="font-normal text-xl">
           Our support team is here to assist you.
         </p>
       </div>
 
-      <div className="mt-6 pt-6 border-t border-white/20">
+      <div className="mt-3 sm:mt-6 pt-6 border-t border-white/20">
         <Image
           src={ContactHero}
           alt="Healthcare Facility"
           className="w-full  object-cover rounded-lg"
         />
       </div>
-      <div className="space-y-4  flex flex-col md:flex-row justify-center gap-8 items-center mt-12">
+      <div className="space-y-4  flex flex-col md:flex-row justify-center gap-8 items-center mt-6 sm:mt-12">
         <div className="border-[#053C6D] flex  rounded-lg text-[#053C6D] border h-14 text-center text-xl font-bold p-2 hover:scale-105 mt-5  w-[12.25rem]">
           Contact support
         </div>

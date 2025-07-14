@@ -31,7 +31,7 @@ export const PatientAnalytics = () => {
   const { patients } = useDashboardStore();
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mb-8">
+    <div className="grid grid-cols-1  xl:grid-cols-3 gap-3 mb-8">
       {/* Patients Overview */}
       <Card className="bg-[#053C6D] text-white">
         <CardHeader>
@@ -160,7 +160,7 @@ export const PatientAnalytics = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-32">
+          <div className="h-32 sm:h-48 md:h-64 xl:h-40">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={weeklyData}>
                 <XAxis dataKey="day" />

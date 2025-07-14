@@ -163,7 +163,7 @@ export const Sidebar = () => {
   };
 
   const handleNavigation = (path: string) => {
-    router.push(path);
+    router.replace(path);
   };
 
   return (

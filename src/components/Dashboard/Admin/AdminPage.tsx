@@ -2,8 +2,10 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, BarChart3, Calendar, Database } from "lucide-react";
+import { useAuthStore } from "@/utils/Store/Login/authStore";
 
-export const AdminPage = ({ userName }: { userName: string | null }) => {
+export const AdminPage = () => {
+  const { userName } = useAuthStore();
   const adminServices = [
     {
       icon: Users,
@@ -33,7 +35,7 @@ export const AdminPage = ({ userName }: { userName: string | null }) => {
 
   return (
     <div className="space-y-6">
-      <Card className="p-8 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white">
+      <Card className="p-8 bg-[#1e3a8a] text-white">
         <h1 className="text-3xl font-bold mb-2">Welcome Admin {userName}!</h1>
         <p className="text-indigo-100 text-lg">Administrator Dashboard</p>
       </Card>

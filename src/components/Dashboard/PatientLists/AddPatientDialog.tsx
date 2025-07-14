@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
-import { usePatientStore } from "@/utils/Store/Patient/patientStor";
+import { usePatientStore } from "@/utils/Store/Patient/patientSearch";
 import {
   addPatientSchema,
   AddPatientData,

@@ -14,18 +14,16 @@ export const DoctorPage = () => {
   const { sidebarCollapsed } = useDashboardStore();
 
   return (
-    <div className=" bg-gray-50 flex rounded-lg">
-      {/* Main Content */}
+    <div className=" bg-gray-50 flex  rounded-lg">
       <div
         className={cn(
           "flex-1 transition-all duration-300",
           sidebarCollapsed ? "ml-0" : "ml-0"
         )}
       >
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col">
+        <div className="  ">
           <Header userName={userName} />
-          <div className="flex-1 flex">
+          <div className=" flex flex-col md:flex-row  ">
             <MainContent />
             <RightSidebar />
           </div>

@@ -42,7 +42,7 @@ export const NotificationsPanel = () => {
   return (
     <div className="space-y-6">
       {/* Notifications */}
-      <Card className="h-[33rem] w-[21rem] ">
+      <Card className="h-[33rem]  w-full ">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg font-semibold">

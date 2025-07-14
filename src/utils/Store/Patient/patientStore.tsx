@@ -34,7 +34,6 @@ export interface MedicalRecord {
 
 interface HealthcareState {
   currentUser: {
-    name: string;
     age: number;
     location: string;
     avatar: string;
@@ -133,7 +132,6 @@ const mockMedicalRecords: MedicalRecord[] = [
 
 export const useHealthcareStore = create<HealthcareState>((set) => ({
   currentUser: {
-    name: "Paul John",
     age: 25,
     location: "Lagos Nigeria",
     avatar: "/placeholder.svg",

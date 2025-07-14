@@ -1,9 +1,9 @@
 export const FAQSection = () => {
   return (
-    <section className="py-20 bg-[#DAF1FB]">
+    <section className="py-10 sm:py-20 bg-[#DAF1FB]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#053C6D] mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#053C6D] mb-6">
             Medical FAQ
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">

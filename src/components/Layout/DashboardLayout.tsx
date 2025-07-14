@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       <ToastContainer />
       <Sidebar />
       <Suspense fallback={<Loading />}>
-        <main className="flex-1 overflow-auto">{children}</main>
+        <main className="flex-1 ">{children}</main>
       </Suspense>
     </div>
   );

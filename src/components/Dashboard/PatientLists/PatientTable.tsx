@@ -16,7 +16,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { usePatientStore } from "@/utils/Store/Patient/patientStor";
+import { usePatientStore } from "@/utils/Store/Patient/patientSearch";
 import { PatientStatus } from "@/components/Types/patient";
 
 const getStatusColor = (status: PatientStatus) => {

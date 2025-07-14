@@ -8,17 +8,16 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[#053C6D] text-white py-16">
-      <div className="container mx-auto flex justify-center px-6">
-        <div className="grid md:grid-cols-5 gap-8">
-          <div className="">
-            <div className="flex items-center gap-2 mb-6">
-              <Image src={Logo} alt="care cycle" className="h-10 w-58" />
-            </div>
-            <p className="text-blue-100 mb-6">
-              Copyright © {currentYear} All rights reserved
-            </p>
+      <div className="container mx-auto flex-col lg:flex-row flex gap-12 lg:gap-24 justify-center px-6">
+        <div className="mx-auto">
+          <div className="flex items-center  gap-2 mb-6">
+            <Image src={Logo} alt="care cycle" className="h-10 w-58" />
           </div>
-
+          <p className="text-blue-100  mb-6">
+            Copyright © {currentYear} All rights reserved
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 text-center md:text-left gap-8">
           <div className="">
             <h3 className="font-semibold text-lg mb-4">Product</h3>
             <ul className="space-y-2 text-blue-100">
@@ -112,9 +111,9 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="mx-auto">
             <h3 className="font-semibold text-lg mb-4">Follow us</h3>
-            <div className="flex flex-row md:flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <Link href="#" className="text-blue-100 hover:text-white">
                 <div className="w-6 h-6 bg-white rounded-[5px] flex items-center justify-center">
                   <Facebook className=" w-5 h-5 text-[#555555]" />

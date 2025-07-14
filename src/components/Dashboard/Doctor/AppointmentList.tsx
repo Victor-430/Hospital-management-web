@@ -21,7 +21,7 @@ export const AppointmentList = () => {
     setCurrentMonth(newMonth);
   };
   return (
-    <div className="space-y-3 h-[33rem] w-[20rem]">
+    <div className="space-y-3 h-[33rem]  w-full">
       <Card className=" ">
         <CardHeader>
           <div className="flex items-center justify-between">

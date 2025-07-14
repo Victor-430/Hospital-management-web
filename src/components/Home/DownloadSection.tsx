@@ -4,10 +4,10 @@ import { Button } from "../ui/button";
 
 export const DownloadSection = () => {
   return (
-    <div className="text-white space-y-8 grid lg:grid-cols-2 gap-16">
+    <div className="text-white  grid lg:grid-cols-2  gap-8 sm:gap-16">
       <div className="">
         <div className="space-y-6 mb-6 sm:mb-0">
-          <h2 className="text-4xl font-bold capitalize">
+          <h2 className="text-3xl sm:text-4xl font-bold capitalize">
             Download Our Mobile App
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed">

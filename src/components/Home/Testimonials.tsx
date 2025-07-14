@@ -37,10 +37,10 @@ export const Testimonials = () => {
   ];
 
   return (
-    <div className="py-20 bg-[#DAF1FB]">
+    <div className="py-5 sm:py-20 bg-[#DAF1FB]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
             Testimonials
           </h2>
           <p className="text-xl text-gray-600">

@@ -37,15 +37,15 @@ const statCards = [
 
 export const DashboardCards = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4  gap-6 mb-8">
       {statCards.map((card, index) => (
         <Card
           key={index}
           className={`${card.bgColor} border-none hover:shadow-lg transition-shadow duration-200`}
         >
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center justify-between  ">
+              <div className="">
                 <p className="text-2xl font-bold text-gray-800">{card.value}</p>
                 <p className="text-sm text-gray-600 mt-1">{card.label}</p>
               </div>
