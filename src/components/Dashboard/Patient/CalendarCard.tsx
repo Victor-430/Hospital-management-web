@@ -15,7 +15,7 @@ import {
 
 export const CalendarCard = () => {
   const [currentDate, setCurrentDate] = React.useState(new Date());
-  const [currentMonth, setCurrentMonth] = React.useState(new Date());
+  // const [currentMonth, setCurrentMonth] = React.useState(new Date());
 
   // const navigateMonth = (direction: "prev" | "next") => {
   //   const newMonth = new Date(currentMonth);
