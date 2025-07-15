@@ -10,8 +10,6 @@ import {
   endOfMonth,
   eachDayOfInterval,
   getDate,
-  getMonth,
-  getYear,
   isToday,
 } from "date-fns";
 
@@ -19,21 +17,21 @@ export const CalendarCard = () => {
   const [currentDate, setCurrentDate] = React.useState(new Date());
   const [currentMonth, setCurrentMonth] = React.useState(new Date());
 
-  const navigateMonth = (direction: "prev" | "next") => {
-    const newMonth = new Date(currentMonth);
-    console.log(newMonth);
-    if (direction === "prev") {
-      newMonth.setMonth(currentMonth.getMonth() - 1);
-    } else {
-      newMonth.setMonth(currentMonth.getMonth() + 1);
-    }
-    setCurrentMonth(newMonth);
-  };
+  // const navigateMonth = (direction: "prev" | "next") => {
+  //   const newMonth = new Date(currentMonth);
+  //   console.log(newMonth);
+  //   if (direction === "prev") {
+  //     newMonth.setMonth(currentMonth.getMonth() - 1);
+  //   } else {
+  //     newMonth.setMonth(currentMonth.getMonth() + 1);
+  //   }
+  //   setCurrentMonth(newMonth);
+  // };
 
-  const handleMonthAndDate = () => {
-    navigateMonth("prev");
-    setCurrentDate(addDays(currentDate, -30));
-  };
+  // const handleMonthAndDate = () => {
+  //   navigateMonth("prev");
+  //   setCurrentDate(addDays(currentDate, -30));
+  // };
 
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);
@@ -42,13 +40,9 @@ export const CalendarCard = () => {
     <Card className="mt-4">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg">{getMonth(new Date())}</CardTitle>
+          <CardTitle className="text-lg">July, 2025</CardTitle>
           <div className="flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => handleMonthAndDate()}
-            >
+            <Button variant="ghost" size="sm">
               <ChevronLeft className="w-4 h-4" />
             </Button>
             <Button

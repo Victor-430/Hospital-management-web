@@ -7,8 +7,7 @@ import Loading from "@/app/(Dashboard Layout)/loading";
 
 export const Dashboard = () => {
   const router = useRouter();
-  const { userRole, userName, getRedirectPath, isAuthenticated } =
-    useAuthStore();
+  const { userRole, getRedirectPath, isAuthenticated } = useAuthStore();
 
   // Redirect to appropriate dashboard based on role
   useEffect(() => {

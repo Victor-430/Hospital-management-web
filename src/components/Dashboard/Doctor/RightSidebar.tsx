@@ -1,5 +1,4 @@
 import React from "react";
-import { AppointmentScheduler } from "./AppointmentScheduler";
 import { UpcomingEvent } from "./UpcomingEvent";
 import { MedicalBot } from "./MedicalBot";
 import { CalendarCard } from "../Patient/CalendarCard";
