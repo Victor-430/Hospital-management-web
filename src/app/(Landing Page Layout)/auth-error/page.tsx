@@ -1,13 +1,10 @@
-import Loading from "@/app/(Dashboard Layout)/loading";
 import { AuthError } from "@/components/auth/AuthError";
-import { Suspense } from "react";
 
-const AuthErrorpage = () => {
-  return (
-    <Suspense fallback={<Loading />}>
-      <AuthError />;
-    </Suspense>
-  );
+// Force dynamic rendering - opt out of static generation
+export const dynamic = "force-dynamic";
+
+const AuthErrorPage = () => {
+  return <AuthError />;
 };
 
-export default AuthErrorpage;
+export default AuthErrorPage;

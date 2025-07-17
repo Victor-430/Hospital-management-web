@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
-import Loading from "@/app/(Dashboard Layout)/loading";
 
 const AuthErrorContent = () => {
   const searchParams = useSearchParams();
@@ -27,6 +26,17 @@ const AuthErrorContent = () => {
       <Button onClick={() => router.push("/login")} className="mt-6">
         Back to Login
       </Button>
+    </div>
+  );
+};
+
+const Loading = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-24 w-24 border-b-2 border-blue-600 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading...</p>
+      </div>
     </div>
   );
 };
