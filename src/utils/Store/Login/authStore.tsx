@@ -1,3 +1,4 @@
+import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
@@ -58,7 +59,7 @@ interface AuthState {
   resendCode: () => Promise<void>;
   clearError: () => void;
   getRedirectPath: () => string;
-  syncWithNextAuth: (session: any) => void;
+  syncWithNextAuth: (session: Session | null) => void;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -110,7 +111,7 @@ export const useAuthStore = create<AuthState>()(
       },
 
       // Sync Zustand store with NextAuth session
-      syncWithNextAuth: (session: any) => {
+      syncWithNextAuth: (session: Session | null) => {
         if (session?.user) {
           const roleFromSession = session.user.role as UserRole;
           const roleToUse = roleFromSession || get().selectedRole;

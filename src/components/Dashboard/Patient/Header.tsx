@@ -2,6 +2,7 @@
 
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { Bell, Mail } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export const Header = () => {
@@ -32,7 +33,7 @@ export const Header = () => {
           </div>
         </div>
 
-        <img
+        <Image
           src={user?.image}
           className="w-16 h-16 bg-gray-300 rounded-full"
           alt="user_img"

@@ -18,7 +18,6 @@ import { getRoleTitle } from "@/utils/role";
 import { Logo } from "@/utils/image";
 import { LeftSideImage } from "./LeftSideImage";
 import { useRouter } from "next/navigation";
-import Loading from "@/app/(Dashboard Layout)/loading";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -53,7 +52,6 @@ export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
       rememberMe: true,
     },
   });
-
 
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);

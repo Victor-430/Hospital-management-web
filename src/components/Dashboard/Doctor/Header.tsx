@@ -8,7 +8,7 @@ import React from "react";
 
 export const Header = () => {
   const { notifications } = useDashboardStore();
-  const { userName, user } = useAuthStore();
+  const { userName } = useAuthStore();
 
   const unreadCount = notifications.filter((n) => !n.read).length;
   return (
