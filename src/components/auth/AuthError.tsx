@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Suspense } from "react";
 import Loading from "@/app/(Dashboard Layout)/loading";
 
-export const AuthError = () => {
+const AuthErrorContent = () => {
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
   const router = useRouter();
@@ -21,16 +21,20 @@ export const AuthError = () => {
   }
 
   return (
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-2xl font-bold text-red-600">Authentication Error</h1>
+      <p className="mt-4 text-gray-700">{errorMessage}</p>
+      <Button onClick={() => router.push("/login")} className="mt-6">
+        Back to Login
+      </Button>
+    </div>
+  );
+};
+
+export const AuthError = () => {
+  return (
     <Suspense fallback={<Loading />}>
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-2xl font-bold text-red-600">
-          Authentication Error
-        </h1>
-        <p className="mt-4 text-gray-700">{errorMessage}</p>
-        <Button onClick={() => router.push("/login")} className="mt-6">
-          Back to Login
-        </Button>
-      </div>
+      <AuthErrorContent />
     </Suspense>
   );
 };
