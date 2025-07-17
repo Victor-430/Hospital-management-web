@@ -5,6 +5,7 @@ import "./globals.css";
 import DashboardLayout from "@/components/Layout/DashboardLayout";
 import { Header } from "@/components/Layout/Header";
 import { ToastContainer } from "react-toastify";
+import { SessionProvider } from "@/components/SessionProvider";
 
 // const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ToastContainer />
-        <Header />
-        <DashboardLayout>{children}</DashboardLayout>
+        <SessionProvider>
+          <ToastContainer />
+          <Header />
+          <DashboardLayout>{children}</DashboardLayout>
+        </SessionProvider>
       </body>
     </html>
   );

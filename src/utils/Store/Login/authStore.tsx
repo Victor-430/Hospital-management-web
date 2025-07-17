@@ -1,3 +1,4 @@
+import { signIn, signOut } from "next-auth/react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -17,6 +18,7 @@ interface User {
   lastName?: string;
   name?: string;
   role: UserRole;
+  image?: string;
 }
 
 interface AuthState {
@@ -35,7 +37,7 @@ interface AuthState {
     password: string,
     rememberMe?: boolean
   ) => Promise<void>;
-  loginWithGoogle: () => Promise<void>;
+  // loginWithGoogle: () => Promise<void>;
   loginWithApple: () => Promise<void>;
   signup: (name: string, email: string, password: string) => Promise<void>;
   signUp: (
@@ -44,8 +46,10 @@ interface AuthState {
     firstName: string,
     lastName: string
   ) => Promise<void>;
-  logout: () => void;
+  logout: () => Promise<void>;
   setUserRole: (role: UserRole) => void;
+  selectedRole: UserRole | null;
+  setSelectedRole: (role: UserRole) => void;
   setRoleDashboardPath: (path: string) => void;
   setLoading: (loading: boolean) => void;
   forgotPassword: (email: string) => Promise<void>;
@@ -54,6 +58,7 @@ interface AuthState {
   resendCode: () => Promise<void>;
   clearError: () => void;
   getRedirectPath: () => string;
+  syncWithNextAuth: (session: any) => void;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -67,11 +72,14 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       error: null,
       roleDashboardPath: null,
+      selectedRole: null,
 
       setUserRole: (role: UserRole) => {
         set({ userRole: role });
         console.log("User role set to:", role);
       },
+
+      setSelectedRole: (role) => set({ selectedRole: role }),
 
       setRoleDashboardPath: (path: string) => {
         set({ roleDashboardPath: path });
@@ -85,7 +93,6 @@ export const useAuthStore = create<AuthState>()(
       getRedirectPath: () => {
         const { userRole } = get();
 
-        // Return app routes that match your folder structure
         switch (userRole) {
           case "doctor":
             return "/Dashboard/doctor";
@@ -102,6 +109,42 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
+      // Sync Zustand store with NextAuth session
+      syncWithNextAuth: (session: any) => {
+        if (session?.user) {
+          const roleFromSession = session.user.role as UserRole;
+          const roleToUse = roleFromSession || get().selectedRole;
+          const user: User = {
+            id: session.user.id,
+            email: session.user.email,
+            firstName: session.user.firstName,
+            lastName: session.user.lastName,
+            name: session.user.name,
+            role: session.user.role,
+            image: session.user.image,
+          };
+
+          set({
+            isAuthenticated: true,
+            user,
+            userEmail: session.user.email,
+            userName: session.user.name,
+            userRole: roleToUse,
+            error: null,
+            selectedRole: get().selectedRole,
+          });
+        } else {
+          set({
+            selectedRole: null,
+            isAuthenticated: false,
+            user: null,
+            userEmail: null,
+            userName: null,
+            userRole: null,
+          });
+        }
+      },
+
       login: async (
         email: string,
         password: string,
@@ -110,39 +153,26 @@ export const useAuthStore = create<AuthState>()(
         set({ isLoading: true, error: null });
 
         try {
-          // Simulate API call
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+          const result = await signIn("credentials", {
+            email,
+            password,
+            role: get().userRole,
+            redirect: false,
+          });
 
-          const { userRole } = get();
+          if (result?.error) {
+            throw new Error(result.error);
+          }
 
-          // Mock validation
-          if (email && password.length >= 6) {
-            const mockUser: User = {
-              id: "1",
-              email,
-              name: email.split("@")[0],
-              firstName: email.split("@")[0],
-              lastName: "User",
-              role: userRole || "patient",
-            };
-
-            set({
-              isAuthenticated: true,
-              isLoading: false,
-              userEmail: email,
-              userName: email.split("@")[0],
-              user: mockUser,
-              error: null,
-            });
-
+          // The session will be synced via useEffect
+          if (result?.ok) {
+            set({ isLoading: false });
             if (rememberMe) {
               localStorage.setItem("rememberUser", email);
             }
-
-            console.log("Login successful for:", email, "as", userRole);
-          } else {
-            throw new Error("Invalid credentials");
           }
+
+          console.log("Login successful for:", email);
         } catch (error) {
           set({
             error: "Login failed. Please check your credentials.",
@@ -152,37 +182,7 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
-      loginWithGoogle: async () => {
-        set({ isLoading: true, error: null });
-
-        try {
-          // Simulate Google OAuth
-          await new Promise((resolve) => setTimeout(resolve, 5000));
-
-          const { userRole } = get();
-          const mockUser: User = {
-            id: "2",
-            email: "user@gmail.com",
-            name: "Google User",
-            firstName: "Google",
-            lastName: "User",
-            role: userRole || "patient",
-          };
-
-          set({
-            isAuthenticated: true,
-            isLoading: false,
-            userEmail: "user@gmail.com",
-            userName: "Google User",
-            user: mockUser,
-            error: null,
-          });
-        } catch (error) {
-          set({ error: "Google login failed.", isLoading: false });
-          throw error;
-        }
-      },
-
+      // ckeck loginform to see google oauth and follow same step for apple
       loginWithApple: async () => {
         set({ isLoading: true, error: null });
 
@@ -214,31 +214,24 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
-      signup: async (name: string, email: string) => {
+      signup: async (name: string, email: string, password: string) => {
         set({ isLoading: true, error: null });
 
         try {
-          // Simulate API call
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-
-          const { userRole } = get();
-          const mockUser: User = {
-            id: "4",
+          // call API to create the user first
+          // Then sign them in
+          const result = await signIn("credentials", {
             email,
-            name,
-            firstName: name.split(" ")[0],
-            lastName: name.split(" ")[1] || "",
-            role: userRole || "patient",
-          };
-
-          set({
-            isAuthenticated: true,
-            isLoading: false,
-            userEmail: email,
-            userName: name,
-            user: mockUser,
-            error: null,
+            password,
+            role: get().userRole,
+            redirect: false,
           });
+
+          if (result?.error) {
+            throw new Error(result.error);
+          }
+
+          set({ isLoading: false });
         } catch (error) {
           set({ error: "Signup failed. Please try again.", isLoading: false });
           throw error;
@@ -247,36 +240,28 @@ export const useAuthStore = create<AuthState>()(
 
       signUp: async (
         email: string,
-        password: string,
-        firstName: string,
-        lastName: string
+        password: string
+        // firstName: string,
+        // lastName: string
       ) => {
         set({ isLoading: true, error: null });
 
         try {
-          // Simulate API call
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-
-          const { userRole } = get();
-          const mockUser: User = {
-            id: "5",
+          // call API to create the user first
+          // Then sign them in
+          const result = await signIn("credentials", {
             email,
-            firstName,
-            lastName,
-            name: `${firstName} ${lastName}`,
-            role: userRole || "doctor",
-          };
-
-          set({
-            isAuthenticated: true,
-            isLoading: false,
-            userEmail: email,
-            userName: `${firstName} ${lastName}`,
-            user: mockUser,
-            error: null,
+            password,
+            role: get().userRole,
+            redirect: false,
           });
 
-          console.log("Sign up successful for:", email, "as", userRole);
+          if (result?.error) {
+            throw new Error(result.error);
+          }
+
+          set({ isLoading: false });
+          console.log("Sign up successful for:", email);
         } catch (error) {
           set({ error: "Sign up failed. Please try again.", isLoading: false });
           throw error;
@@ -362,7 +347,8 @@ export const useAuthStore = create<AuthState>()(
         set({ error: null });
       },
 
-      logout: () => {
+      logout: async () => {
+        signOut({ redirect: false });
         set({
           isAuthenticated: false,
           userRole: null,
@@ -371,6 +357,7 @@ export const useAuthStore = create<AuthState>()(
           user: null,
           error: null,
           roleDashboardPath: null,
+          selectedRole: null,
         });
         localStorage.removeItem("rememberUser");
         console.log("User logged out");

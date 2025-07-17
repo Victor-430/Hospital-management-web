@@ -168,6 +168,6 @@ export const getSidebarMenuItems = (userRole: string | null): MenuItem[] => {
       ];
 
     default:
-      return [{ icon: Home, label: "Dashboard", path: "/Dashboard" }];
+      return null;
   }
 };

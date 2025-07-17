@@ -35,8 +35,8 @@ export const NursePage = () => {
 
   return (
     <div className="space-y-6">
-      <Card className="p-8 bg-gradient-to-r from-pink-600 to-pink-800 text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome Nurse {userName}!</h1>
+      <Card className="p-8 bg-[#1e3a8a] text-white">
+        <h1 className="text-3xl font-bold mb-2">Welcome Nurse {userName}</h1>
         <p className="text-pink-100 text-lg">Nurse Dashboard</p>
       </Card>
 

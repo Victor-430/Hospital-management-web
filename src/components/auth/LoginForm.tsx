@@ -1,4 +1,6 @@
 "use client";
+import { signIn } from "next-auth/react";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,6 +18,7 @@ import { getRoleTitle } from "@/utils/role";
 import { Logo } from "@/utils/image";
 import { LeftSideImage } from "./LeftSideImage";
 import { useRouter } from "next/navigation";
+import Loading from "@/app/(Dashboard Layout)/loading";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -35,7 +38,8 @@ export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { login, userRole } = useAuthStore();
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const { login, userRole, getRedirectPath, selectedRole } = useAuthStore();
 
   const {
     register,
@@ -50,31 +54,54 @@ export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
     },
   });
 
+
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     try {
-      await login(data.email, data.password);
+      await login(data.email, data.password, data.rememberMe);
+
+      // Get the redirect path based on user role
+      const redirectPath = getRedirectPath();
+
+      console.log("Login successful, redirecting to:", redirectPath);
+      console.log("User role:", userRole, "Selected role:", selectedRole);
+
+      // Navigate based on role
+      if (redirectPath && redirectPath !== "/login") {
+        router.replace(redirectPath);
+      } else {
+        // If no valid redirect path, go to role selection
+        console.warn("No valid redirect path found, going to role selection");
+        router.replace("/RoleRedirect");
+      }
       toast.success("Login successful (Welcome back!)");
     } catch (error) {
-      toast.error(
-        `Login failed ${error instanceof Error} ? 
-            Invalid credentials
-        : ${null}`
-      );
+      const errorMessage =
+        error instanceof Error ? error.message : "An unexpected error occurred";
+      console.error("Login error:", errorMessage);
+      toast.error(`Login failed`);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleGoogleLogin = () => {
-    toast.success("Google authentication successful");
+  const handleGoogleLogin = async () => {
+    setGoogleLoading(true);
+
+    try {
+      await signIn("google", { callbackUrl: "/RoleRedirect" });
+    } catch (error) {
+      console.error("Google login failed:", error);
+      toast.error("Google login failed");
+    } finally {
+      setGoogleLoading(false);
+    }
   };
 
   const handleAppleLogin = () => {
     toast.success("Apple authentication successful");
   };
 
-  // ADDED: Function to handle signup navigation
   const handleSignupClick = () => {
     router.push("/signup");
   };
@@ -188,6 +215,7 @@ export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
 
             <div className="space-y-3">
               <Button
+                disabled={googleLoading}
                 type="button"
                 variant="outline"
                 onClick={handleGoogleLogin}
@@ -211,13 +239,14 @@ export const LoginForm = ({ onBack, onForgotPassword }: LoginFormProps) => {
                     d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                   />
                 </svg>
-                Log in with Google
+                {googleLoading ? "Authenticating ..." : "Log in with Google"}
               </Button>
 
               <Button
                 type="button"
                 variant="outline"
                 onClick={handleAppleLogin}
+                disabled={true}
                 className="w-full h-12 border-2"
               >
                 <svg

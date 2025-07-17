@@ -7,6 +7,7 @@ import { StatsCard } from "./StatsCard";
 import { ProfileCard } from "./ProfileCard";
 import { UpcomingAppointments } from "./UpcomingAppointments";
 import { MedicationCard } from "./MedicationCard";
+import { CalendarCard } from "./CalendarCard";
 
 export const PatientPage = () => {
   return (
@@ -17,6 +18,7 @@ export const PatientPage = () => {
         <StatsCard />
 
         <ProfileCard />
+        <CalendarCard />
 
         <UpcomingAppointments />
 

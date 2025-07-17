@@ -2,11 +2,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useDashboardStore } from "@/utils/Store/Doctor/DashboardStore";
+import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { Bell, Search, User } from "lucide-react";
 import React from "react";
 
-export const Header = ({ userName }: { userName: string | null }) => {
+export const Header = () => {
   const { notifications } = useDashboardStore();
+  const { userName, user } = useAuthStore();
+
   const unreadCount = notifications.filter((n) => !n.read).length;
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">

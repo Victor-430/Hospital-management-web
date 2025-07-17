@@ -37,8 +37,8 @@ export const Navigation = () => {
     router.replace(`${path}`);
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     router.replace("/login");
   };
 
@@ -72,37 +72,6 @@ export const Navigation = () => {
             {/* {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />} */}
           </Link>
         ))}
-
-        {/* Services Dropdown - Only show when authenticated */}
-        {/* {isAuthenticated && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600"
-              >
-                <span>Services</span>
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
-              {getServicesForRole().map((service) => {
-                const IconComponent = service.icon;
-                return (
-                  <DropdownMenuItem
-                    key={service.path}
-                    onClick={() => handleServiceSelect(service.path)}
-                    className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <IconComponent className="h-4 w-4 text-blue-600" />
-                    <span>{service.label}</span>
-                  </DropdownMenuItem>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
-      </div> */}
 
         {/* Services Dropdown - Only show when authenticated */}
         {isAuthenticated && (

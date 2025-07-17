@@ -7,10 +7,8 @@ import { cn } from "@/lib/utils";
 import { Header } from "./Header";
 import { MainContent } from "./MainContent";
 import { RightSidebar } from "./RightSidebar";
-import { useAuthStore } from "@/utils/Store/Login/authStore";
 
 export const DoctorPage = () => {
-  const { userName } = useAuthStore();
   const { sidebarCollapsed } = useDashboardStore();
 
   return (
@@ -22,7 +20,7 @@ export const DoctorPage = () => {
         )}
       >
         <div className="  ">
-          <Header userName={userName} />
+          <Header />
           <div className=" flex flex-col md:flex-row  ">
             <MainContent />
             <RightSidebar />

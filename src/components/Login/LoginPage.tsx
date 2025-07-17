@@ -18,8 +18,10 @@ import { ForgotPassword } from "./ForgotPassword";
 import { variantProp } from "../Types/signup";
 import { NameInput } from "./NameInput";
 
+// disabled this check loginForm in auth folder
+
 export const LoginPage = ({ variant }: { variant: variantProp }) => {
-  const { login, loginWithGoogle, loginWithApple, isLoading } = useAuthStore();
+  const { login, loginWithApple, isLoading } = useAuthStore();
 
   const {
     register,
@@ -43,14 +45,6 @@ export const LoginPage = ({ variant }: { variant: variantProp }) => {
       await login(data.email, data.password, data.rememberMe);
     } catch (error) {
       console.error("Login failed:", error);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    try {
-      await loginWithGoogle();
-    } catch (error) {
-      console.error("Google login failed:", error);
     }
   };
 
@@ -132,7 +126,7 @@ export const LoginPage = ({ variant }: { variant: variantProp }) => {
                 </div>
 
                 <SocialLoginBtn
-                  googleLogin={handleGoogleLogin}
+                  // googleLogin={handleGoogleLogin}
                   appleLogin={handleAppleLogin}
                   loading={isLoading}
                 />

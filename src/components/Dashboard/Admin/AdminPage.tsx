@@ -36,7 +36,7 @@ export const AdminPage = () => {
   return (
     <div className="space-y-6">
       <Card className="p-8 bg-[#1e3a8a] text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome Admin {userName}!</h1>
+        <h1 className="text-3xl font-bold mb-2">Welcome Admin {userName}</h1>
         <p className="text-indigo-100 text-lg">Administrator Dashboard</p>
       </Card>
 

@@ -6,14 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card } from "@/components/ui/card";
-import {
-  
-  Stethoscope,
-  Heart,
-  Settings,
-  Crown,
-  ArrowLeft,
-} from "lucide-react";
+import { Stethoscope, Heart, Settings, Crown, ArrowLeft } from "lucide-react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { LeftSideImage } from "./LeftSideImage";
 import { Logo } from "@/utils/image";
@@ -71,7 +64,7 @@ export const RoleVerification = ({
   onBack,
   onContinue,
 }: RoleVerificationProps) => {
-  const { setUserRole, setRoleDashboardPath } = useAuthStore();
+  const { setUserRole, setRoleDashboardPath, setSelectedRole } = useAuthStore();
 
   const {
     handleSubmit,
@@ -90,6 +83,7 @@ export const RoleVerification = ({
         (option) => option.value === data.role
       );
       setUserRole(data.role);
+      setSelectedRole(data.role); // Set selectedRole
       if (selectedRoleOption) {
         setRoleDashboardPath(selectedRoleOption.dashboardPath);
       }

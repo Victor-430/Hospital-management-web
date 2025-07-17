@@ -8,7 +8,6 @@ import { ForgotPasswordForm } from "./ForgotPasswordForm";
 import { VerificationForm } from "./VerificationForm";
 import SetPasswordForm from "./SetPasswordForm";
 import { RoleVerification } from "./RoleVerification";
-import { Dashboard } from "./Dashboard";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { LeftSideImage } from "./LeftSideImage";
 import Image from "next/image";
@@ -27,11 +26,6 @@ type AuthView =
 export const WelcomePage = () => {
   const router = useRouter();
   const [currentView, setCurrentView] = useState<AuthView>("welcome");
-  const { isAuthenticated } = useAuthStore();
-
-  if (isAuthenticated) {
-    return <Dashboard />;
-  }
 
   const renderCurrentView = () => {
     switch (currentView) {
