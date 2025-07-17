@@ -59,7 +59,7 @@ interface AuthState {
   resendCode: () => Promise<void>;
   clearError: () => void;
   getRedirectPath: () => string;
-  syncWithNextAuth: (session: Session | null) => void;
+  syncWithNextAuth: (session: Session) => void;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -111,7 +111,7 @@ export const useAuthStore = create<AuthState>()(
       },
 
       // Sync Zustand store with NextAuth session
-      syncWithNextAuth: (session: Session | null) => {
+      syncWithNextAuth: (session: Session) => {
         if (session?.user) {
           const roleFromSession = session.user.role as UserRole;
           const roleToUse = roleFromSession || get().selectedRole;
