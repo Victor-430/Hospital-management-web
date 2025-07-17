@@ -1,41 +1,13 @@
+import Loading from "@/app/(Dashboard Layout)/loading";
 import { AuthError } from "@/components/auth/AuthError";
-import React from "react";
+import React, { Suspense } from "react";
 
 const AuthErrorpage = () => {
-  return <AuthError />;
+  return (
+    <Suspense fallback={<Loading />}>
+      <AuthError />;
+    </Suspense>
+  );
 };
 
 export default AuthErrorpage;
-
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import { useRouter, useSearchParams } from "next/navigation";
-// import React from "react";
-
-// const page = () => {
-//   const searchParams = useSearchParams();
-//   const error = searchParams.get("error");
-//   const router = useRouter();
-
-//   let errorMessage = "An error occurred during authentication.";
-//   if (error === "AccessDenied") {
-//     errorMessage = "Authentication was cancelled or denied.";
-//   } else if (error === "Configuration") {
-//     errorMessage = "Unable to get profile";
-//   } else if (error === "OAuthCallbackError") {
-//     errorMessage = "An error occured during authentication";
-//   }
-
-//   return (
-//     <div className="flex flex-col items-center justify-center min-h-screen">
-//       <h1 className="text-2xl font-bold text-red-600">Authentication Error</h1>
-//       <p className="mt-4 text-gray-700">{errorMessage}</p>
-//       <Button onClick={() => router.push("/login")} className="mt-6">
-//         Back to Login
-//       </Button>
-//     </div>
-//   );
-// };
-
-// export default page;
