@@ -48,7 +48,7 @@ export const NewsletterForm = ({ variant }: { variant: variantProps }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-md mx-auto sm:mx-0"
+        className="flex  justify-center gap-3 w-full  mx-auto sm:mx-0"
       >
         <FormField
           control={form.control}

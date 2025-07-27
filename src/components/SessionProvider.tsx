@@ -4,6 +4,7 @@ import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { useAuthStore } from "@/utils/Store/Login/authStore";
 import { useEffect } from "react";
+// import { useRouter } from "next/navigation";
 
 function SessionSync() {
   const { data: session, status } = useSession();
@@ -19,9 +20,12 @@ function SessionSync() {
 }
 
 export function SessionProvider({ children }: { children: React.ReactNode }) {
+  // const router = useRouter();
   return (
     <NextAuthSessionProvider>
       <SessionSync />
+      {/* if (status === "unauthenticated" || !isAuthenticated)
+      {router.replace("/login")} */}
       {children}
     </NextAuthSessionProvider>
   );

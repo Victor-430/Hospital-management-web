@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useHealthcareStore } from "@/utils/Store/Patient/patientStore";
 import { motion } from "framer-motion";
-import React from "react";
 
 export const ProfileCard = () => {
   const { currentUser } = useHealthcareStore();
@@ -20,7 +19,7 @@ export const ProfileCard = () => {
         <CardContent className="p-6">
           <div className="text-center mb-6">
             <div className="w-20 h-20 bg-white rounded-full mx-auto mb-4"></div>
-            <h3 className="text-xl font-semibold">{currentUser.name}</h3>
+            {/* <h3 className="text-xl font-semibold">{currentUser.name}</h3> */}
             <p className="text-blue-200">{currentUser.age} years old</p>
             <p className="text-blue-200 text-sm">{currentUser.location}</p>
           </div>

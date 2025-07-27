@@ -34,7 +34,7 @@ export const Header = () => {
         </div>
 
         <Image
-          src={user?.image}
+          src={user?.image || null}
           className="w-16 h-16 bg-gray-300 rounded-full"
           alt="user_img"
         />

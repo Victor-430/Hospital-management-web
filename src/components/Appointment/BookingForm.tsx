@@ -27,7 +27,7 @@ export const BookingForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-md bg-white shadow-xl">
+    <Card className="w-full max-w-md mx-auto  bg-white shadow-xl">
       <CardHeader className="text-center">
         <CardTitle className="text-xl font-bold text-[#053C6D]">
           Book Appointment
